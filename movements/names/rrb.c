@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strverif.c                                         :+:      :+:    :+:   */
+/*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 16:21:43 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 17:56:42 by acanadil         ###   ########.fr       */
+/*   Created: 2026/02/19 17:53:44 by acanadil          #+#    #+#             */
+/*   Updated: 2026/02/19 17:54:07 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "movements.h"
+#include "printf.h"
 
-int	strverif(char *str1, char *str2)
+void	rrb(t_stack *stack)
 {
-	while (str1 && str2)
-	{
-		if (*str1 != *str2)
-			return (1);
-		str1++;
-		str2++;
-	}
-	if (*str1 != *str2)
-		return (1);
-	return (0);
-}
+	t_bench	*bench;
 
-/*
-char *mov = "sa\0";
-if(strverif(mov, ""))
-	sa(stack);
-*/
+	bench = stack->calc;
+	if (revrotate(&stack->stackb))
+	{
+		ft_printf("rrb\n");
+		bench->rrb++;
+	}
+}
