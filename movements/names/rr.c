@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:46:52 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 17:51:31 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/19 18:12:40 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	rr(t_stack *stack)
 	{
 		ft_printf("rr\n");
 		bench->rr++;
+		bench->total++;
 	}
 }
