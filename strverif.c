@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   revrotate.c                                        :+:      :+:    :+:   */
+/*   strverif.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 13:21:23 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 15:11:21 by acanadil         ###   ########.fr       */
+/*   Created: 2026/02/19 16:21:43 by acanadil          #+#    #+#             */
+/*   Updated: 2026/02/19 16:47:06 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	revrotate(t_list **stack)
+int	strverif(char *str1, char *str2)
 {
-	t_list	*aux;
-	t_list	*iter;
-
-	iter = *stack;
-	aux = ft_lstlast(stack);
-	while (iter->next == aux)
+	while (str1 && str2)
 	{
-		iter = iter->next;
+		if (*str1 != *str2)
+			return (1);
+		str1++;
+		str2++;
 	}
-	iter->next = NULL;
-	ft_lstadd_front(stack, aux);
+	if (*str1 != *str2)
+		return (1);
+	return (0);
 }

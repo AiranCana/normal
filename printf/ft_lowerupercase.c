@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_lowerupercase.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/17 15:24:15 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 12:31:08 by acanadil         ###   ########.fr       */
+/*   Created: 2026/02/01 17:47:28 by acanadil          #+#    #+#             */
+/*   Updated: 2026/02/01 18:22:47 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "ft_printf.h"
 
-void	swap(t_list **swap)
+char	*ft_tolowercase(char *s)
 {
-	t_list	*aux;
+	int	i;
 
-	aux = (*swap)->next;
-	(*swap)->next = aux->next;
-	ft_lstadd_front(swap, aux);
+	i = 0;
+	while (s[i])
+	{
+		s[i] = ft_tolower(s[i]);
+		i++;
+	}
+	return (s);
+}
+
+char	*ft_touppercase(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		s[i] = ft_toupper(s[i]);
+		i++;
+	}
+	return (s);
 }

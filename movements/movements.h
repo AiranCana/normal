@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:20:40 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 13:22:26 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/19 17:50:56 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,26 @@
 #ifndef MOVEMENTS_H
 # define MOVEMENTS_H
 
-# include "../libft/libft.h"
+# include "push_swap.h"
 
-void	swapall(t_stack **stack);
-void	rotate(t_list **stack);
-void	revrotate(t_list **stack);
-void	swap(t_list **swap);
+void	rra(t_stack *stack);
+void	rrb(t_stack *stack);
+void	rrr(t_stack *stack);
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
+void	ss(t_stack *stack);
+void	pa(t_stack *stack);
+void	pb(t_stack *stack);
+void	ra(t_stack *stack);
+void	rb(t_stack *stack);
+void	rr(t_stack *stack);
 
+int		push(t_list **stack, t_list **dest);
+int		revrotateall(t_stack **stack);
+int		rotateall(t_stack **stack);
+int		revrotate(t_list **stack);
+int		swapall(t_stack **stack);
+int		rotate(t_list **stack);
+int		swap(t_list **stack);
 
 #endif

@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   revrotateall.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 12:57:52 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 13:33:24 by acanadil         ###   ########.fr       */
+/*   Created: 2026/02/19 15:49:01 by acanadil          #+#    #+#             */
+/*   Updated: 2026/02/19 17:08:10 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "movements.h"
 
-void	push(t_list **t_stack, t_list **dest)
+int	revrotateall(t_stack **stack)
 {
-	t_list	*aux;
-
-	aux = *t_stack;
-	(*t_stack)->next = *t_stack;
-	ft_lstadd_front(dest, aux);
+	if (revrotate(&(*stack)->stacka))
+	{
+		if (revrotate(&(*stack)->stackb))
+			return (1);
+		else
+			rotate(&(*stack)->stacka);
+	}
+	return (0);
 }

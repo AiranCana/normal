@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:24:08 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 13:30:18 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/19 16:51:18 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <stddef.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 typedef struct s_bench
 {
@@ -46,5 +46,6 @@ void	simple(t_stack **order);
 void	medium(t_stack **order);
 void	complex(t_stack **order);
 void	adaptiv(t_stack **order);
+int		strverif(char *str1, char *str2);
 
 #endif

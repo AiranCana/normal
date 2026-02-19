@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   rr.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 13:18:24 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 13:35:42 by acanadil         ###   ########.fr       */
+/*   Created: 2026/02/19 17:46:52 by acanadil          #+#    #+#             */
+/*   Updated: 2026/02/19 17:51:31 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "movements.h"
+#include "printf.h"
 
-void	rotate(t_list **stack)
+void	rr(t_stack *stack)
 {
-	t_list	*aux;
+	t_bench	*bench;
 
-	aux = *stack;
-	(*stack) = aux->next;
-	aux->next = NULL;
-	ft_lstadd_back(stack, aux);
+	bench = stack->calc;
+	if (rotateall(&stack))
+	{
+		ft_printf("rr\n");
+		bench->rr++;
+	}
 }
