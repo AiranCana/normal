@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   revrotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/17 15:24:15 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 12:31:08 by acanadil         ###   ########.fr       */
+/*   Created: 2026/02/19 13:21:23 by acanadil          #+#    #+#             */
+/*   Updated: 2026/02/19 15:11:21 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap(t_list **swap)
+void	revrotate(t_list **stack)
 {
 	t_list	*aux;
+	t_list	*iter;
 
-	aux = (*swap)->next;
-	(*swap)->next = aux->next;
-	ft_lstadd_front(swap, aux);
+	iter = *stack;
+	aux = ft_lstlast(stack);
+	while (iter->next == aux)
+	{
+		iter = iter->next;
+	}
+	iter->next = NULL;
+	ft_lstadd_front(stack, aux);
 }

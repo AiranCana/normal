@@ -6,25 +6,23 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 19:33:04 by acanadil          #+#    #+#             */
-/*   Updated: 2026/01/27 12:03:47 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/19 12:17:02 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	clean(t_list *lst, void (*del)(void *))
+static void	clean(t_list *lst)
 {
 	if (lst -> next)
-		clean(lst -> next, del);
-	if (del)
-		del(lst -> content);
+		clean(lst -> next);
 	free(lst);
 }
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst)
 {
-	if (!lst || !*lst || !del)
+	if (!lst || !*lst)
 		return ;
-	clean(*lst, del);
+	clean(*lst);
 	*lst = NULL;
 }

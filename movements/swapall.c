@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ss.c                                               :+:      :+:    :+:   */
+/*   swapall.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 15:24:15 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/18 10:18:20 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/19 13:12:53 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "movements.h"
 
-void	ss(t_stack **b, t_stack **a)
+void	swapall(t_stack **stack)
 {
-	*a = sa(*a);
-	*b = sa(*b);
+	swap(&(*stack)->stacka);
+	swap(&(*stack)->stackb);
 }

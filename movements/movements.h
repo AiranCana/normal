@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:20:40 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 11:39:25 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/19 13:22:26 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 
 # include "../libft/libft.h"
 
-t_list	*swap(t_list *swap);
-void	ss(t_list **b, t_list **a);
+void	swapall(t_stack **stack);
+void	rotate(t_list **stack);
+void	revrotate(t_list **stack);
+void	swap(t_list **swap);
+
 
 #endif

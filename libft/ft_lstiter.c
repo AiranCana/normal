@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 19:33:10 by acanadil          #+#    #+#             */
-/*   Updated: 2026/01/27 11:24:04 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/19 12:15:36 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		return ;
 	while (lst -> next)
 	{
-		f(lst -> content);
+		f(lst -> num);
 		lst = lst -> next;
 	}
-	f(lst -> content);
+	f(lst -> num);
 	return ;
 }
