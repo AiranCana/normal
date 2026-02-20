@@ -6,19 +6,19 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:49:29 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 18:12:56 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/20 11:13:34 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "movements.h"
 #include "printf.h"
 
-void	sa(t_stack *stack)
+void	sa(t_stack **stack)
 {
 	t_bench	*bench;
 
-	bench = stack->calc;
-	if (swap(&stack->stacka))
+	bench = (*stack)->calc;
+	if (swap(&(*stack)->stacka))
 	{
 		ft_printf("sa\n");
 		bench->sa++;

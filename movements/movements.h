@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:20:40 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 17:50:56 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/20 11:12:37 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 
 # include "push_swap.h"
 
-void	rra(t_stack *stack);
-void	rrb(t_stack *stack);
-void	rrr(t_stack *stack);
-void	sa(t_stack *stack);
-void	sb(t_stack *stack);
-void	ss(t_stack *stack);
-void	pa(t_stack *stack);
-void	pb(t_stack *stack);
-void	ra(t_stack *stack);
-void	rb(t_stack *stack);
-void	rr(t_stack *stack);
+void	rra(t_stack **stack);
+void	rrb(t_stack **stack);
+void	rrr(t_stack **stack);
+void	sa(t_stack **stack);
+void	sb(t_stack **stack);
+void	ss(t_stack **stack);
+void	pa(t_stack **stack);
+void	pb(t_stack **stack);
+void	ra(t_stack **stack);
+void	rb(t_stack **stack);
+void	rr(t_stack **stack);
 
 int		push(t_list **stack, t_list **dest);
 int		revrotateall(t_stack **stack);

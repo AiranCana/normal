@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:24:08 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 16:51:18 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/20 11:10:12 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	simple(t_stack **order);
 void	medium(t_stack **order);
 void	complex(t_stack **order);
 void	adaptiv(t_stack **order);
+void	makemove(t_stack **order, char *move);
 int		strverif(char *str1, char *str2);
 
 #endif

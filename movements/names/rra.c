@@ -6,19 +6,19 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:48:18 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 18:12:45 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/20 11:29:01 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "movements.h"
 #include "printf.h"
 
-void	rra(t_stack *stack)
+void	rra(t_stack **stack)
 {
 	t_bench	*bench;
 
-	bench = stack->calc;
-	if (revrotate(&stack->stacka))
+	bench = (*stack)->calc;
+	if (revrotate(&(*stack)->stacka))
 	{
 		ft_printf("rra\n");
 		bench->rra++;
