@@ -6,7 +6,7 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 10:36:03 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/02/20 13:11:47 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/02/23 10:17:59 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,24 +63,13 @@ Función is_valid_number(char *str) → verifica que sea número
 Función has_duplicates(argv) → detecta duplicados
 Función ft_init_stack(argv, argc) → crea la estructura
 
-
 ---
 simple:  3-5 números
 medium:  6-100 números
 complex: 100+ números
 ---
-PRIORIDAD 2: Algoritmos
-3️⃣ simple.c - Ordenamiento para 3-5 números
-cvoid sort_three(t_stack **stack)  // Max 2 movimientos
-void sort_five(t_stack **stack)   // Max 12 movimientos
-void simple(t_stack **order)      // Elige cuál usar
-Lógica para 3 números:
-[1,2,3] → ya ordenado, 0 movimientos
-[1,3,2] → sa → [3,1,2]... espera, necesito pensar mejor
-[2,1,3] → sa → [1,2,3], 1 movimiento ✓
-[2,3,1] → ra → [3,1,2]... necesito 2 movimientos
 
-4️⃣ medium.c - Ordenamiento para 6-100 números
+medium.c - Ordenamiento para 6-100 números
 cvoid medium(t_stack **order)
 Estrategia típica (Radix o Quick Sort adaptado):
 - Divide números en 3 o 4 partes
@@ -88,7 +77,7 @@ Estrategia típica (Radix o Quick Sort adaptado):
 - Ordena recursivamente
 - Reinseerta en orden
 
-5️⃣ complex.c - Ordenamiento para 100+ números
+complex.c - Ordenamiento para 100+ números
 cvoid complex(t_stack **order)
 Para el básico: copia la lógica de medium() o usa la misma
 
