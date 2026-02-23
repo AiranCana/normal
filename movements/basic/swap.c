@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 15:24:15 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/23 11:06:48 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/23 12:39:21 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	swap(t_list **stack)
 {
 	t_list	*aux;
 
-	if (!(*stack) || !(*stack)->next)
+	if (!stack && !(*stack) || !(*stack)->next)
 		return (0);
 	aux = (*stack)->next;
 	(*stack)->next = aux->next;
