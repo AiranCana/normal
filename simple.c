@@ -6,11 +6,51 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 10:41:14 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/02/23 17:24:56 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/02/23 18:01:33 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*
+sort_three: sorted - first bigger - second bigger - third bigger(else)
+
+simple:
+	- loop until a is empty or sorted
+	- if only 3 items left sort them quickly and exit loop
+	- find the smallest number and its position in a
+	- if its in the first half rotate up (ra)
+	- otherwise rotate down (rra) to bring it to the top
+	- move the smallest element to stack b
+	- return everything to Stack A in the correct order
+*/
+void	sort_three(t_stack **stack)
+{
+	int	first;
+	int	second;
+	int	third;
+
+	first = (*stack)->stacka->num;
+	second = (*stack)->stacka->next->num;
+	third = (*stack)->stacka->next->next->num;
+	if (first < second && second < third)
+		return ;
+	if (first > second && first > third)
+	{
+		ra(*stack);
+		if ((*stack)->stacka->num > (*stack)->stacka->next->num)
+			sa(*stack);
+	}
+	else if (second > first && second > third)
+	{
+		rra(*stack);
+		if ((*stack)->stacka->num > (*stack)->stacka->next->num)
+			sa(*stack);
+	}
+	else
+	{
+		sa(*stack);
+	}
+}
 
 void	simple(t_stack **stack)
 {
@@ -20,39 +60,28 @@ void	simple(t_stack **stack)
 
 	if (!stack || !(*stack) || !(*stack)->stacka)
 		return ;
-	while ((*stack)->stacka && !is_sorted((*stack)->stacka))//no emty no order
+	while ((*stack)->stacka && !is_sorted((*stack)->stacka))
 	{
 		size = ft_lstsize((*stack)->stacka);
+		if (size == 3)
+		{
+			sort_three(stack);
+			break ;
+		}
 		min = get_min((*stack)->stacka);
 		pos = get_position((*stack)->stacka, min);
-		if ((*stack)->stackb != NULL)// b not empty
+		if (pos <= size / 2)
 		{
-			if (pos <= size / 2)//first half
-			{
-				while ((*stack)->stacka->num != min)
-					rr(*stack);
-			}
-			else//second half
-			{
-				while ((*stack)->stacka->num != min)
-					rrr(*stack);
-			}
+			while ((*stack)->stacka->num != min)
+				ra(*stack);
 		}
-		else// empty b
+		else
 		{
-			if (pos <= size / 2)//first half- a up
-			{
-				while ((*stack)->stacka->num != min)
-					ra(*stack);
-			}
-			else
-			{//second half
-				while ((*stack)->stacka->num != min)
-					rra(*stack);
-			}
+			while ((*stack)->stacka->num != min)
+				rra(*stack);
 		}
-		pb(*stack);// pass min b
+		pb(*stack);
 	}
-	while ((*stack)->stackb != NULL)//return a and b, in order asc
+	while ((*stack)->stackb != NULL)
 		pa(*stack);
 }
