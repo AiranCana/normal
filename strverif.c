@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:21:43 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 17:56:42 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/23 11:03:39 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int	strverif(char *str1, char *str2)
 {
-	while (str1 && str2)
+	while (*str1 && *str2)
 	{
 		if (*str1 != *str2)
-			return (1);
+			return (0);
 		str1++;
 		str2++;
 	}
 	if (*str1 != *str2)
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 
 /*

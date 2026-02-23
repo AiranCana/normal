@@ -6,11 +6,11 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:21:23 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 15:51:45 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/23 11:32:33 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "movements.h"
+#include "../movements.h"
 
 int	revrotate(t_list **stack)
 {
@@ -20,12 +20,13 @@ int	revrotate(t_list **stack)
 	if (!(*stack) || !(*stack)->next)
 		return (0);
 	iter = *stack;
-	aux = ft_lstlast(stack);
-	while (iter->next == aux)
+	aux = ft_lstlast(*stack);
+	while ((*stack)->next != aux)
 	{
-		iter = iter->next;
+		*stack = (*stack)->next;
 	}
-	iter->next = NULL;
+	(*stack)->next = NULL;
+	*stack = iter;
 	ft_lstadd_front(stack, aux);
 	return (1);
 }

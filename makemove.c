@@ -6,11 +6,11 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 11:07:34 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/20 11:40:35 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/20 12:58:29 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "movements.h"
+#include "movements/movements.h"
 
 void	makemove(t_stack **order, char *move)
 {

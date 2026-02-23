@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 13:41:50 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 12:18:39 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/20 12:36:47 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 
 typedef struct s_list
 {
-	int				*num;
-	int				*pos;
+	int				num;
+	int				pos;
 	struct s_list	*next;
 }	t_list;
 
-t_list	*ft_lstmap(t_list *lst, int (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, int f(int));
 t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);
 
@@ -52,10 +52,10 @@ char	*ft_strdup(const char *s);
 char	*ft_itoa(int n);
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstdelone(t_list *lst);
 void	ft_lstclear(t_list **lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstiter(t_list *lst, void (*f)(void *));
+void	ft_lstiter(t_list *lst, int f(int));
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);

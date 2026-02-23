@@ -6,19 +6,19 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 19:33:16 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 12:18:15 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/20 12:55:56 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	iscreate(t_list *lst, int (*f)(void *), t_list **list)
+static int	iscreate(t_list *lst, int f(int), t_list **list)
 {
 	t_list	*aux;
 
 	while (lst)
 	{
-		aux = ft_lstnew(NULL);
+		aux = ft_lstnew(0);
 		if (!aux)
 			return (1);
 		aux -> num = f(lst -> num);
@@ -28,7 +28,7 @@ static int	iscreate(t_list *lst, int (*f)(void *), t_list **list)
 	return (0);
 }
 
-t_list	*ft_lstmap(t_list *lst, int (*f)(void *))
+t_list	*ft_lstmap(t_list *lst, int f(int))
 {
 	t_list	*list;
 

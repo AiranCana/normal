@@ -6,12 +6,11 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:43:01 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/20 11:18:55 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/20 13:23:46 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "movements.h"
-#include "printf.h"
+#include "../movements.h"
 
 void	rb(t_stack **stack)
 {
@@ -20,7 +19,7 @@ void	rb(t_stack **stack)
 	bench = (*stack)->calc;
 	if (rotate(&(*stack)->stackb))
 	{
-		ft_printf("rb\n");
+		write(1, "rb\n", 3);
 		bench->rb++;
 		bench->total++;
 	}

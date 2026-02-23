@@ -6,13 +6,13 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 19:33:10 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 12:15:36 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/20 12:55:39 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, int f(int))
 {
 	if (!lst)
 		return ;

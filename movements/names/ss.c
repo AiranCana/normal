@@ -6,12 +6,11 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:28:47 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/20 11:13:01 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/20 13:44:09 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "movements.h"
-#include "printf.h"
+#include "../movements.h"
 
 void	ss(t_stack **stack)
 {
@@ -20,7 +19,7 @@ void	ss(t_stack **stack)
 	bench = (*stack)->calc;
 	if (swapall(stack))
 	{
-		ft_printf("ss\n");
+		write(1, "ss\n", 3);
 		bench->ss++;
 		bench->total++;
 	}
