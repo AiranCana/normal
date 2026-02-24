@@ -6,7 +6,7 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 10:36:03 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/02/24 13:01:07 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/02/24 13:19:06 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,8 @@ int main(int argc, char **argv)
     {
         // Ya está ordenado, no hacer nada
     }
-    else if (size <= 5)
-    {
-        simple(&stack);      // 3-5 números
-    }
-    else if (size <= 100)
-    {
-        medium(&stack);      // 6-100 números
-    }
     else
-    {
-        complex(&stack);     // 100+ números
-    }
+        ordenar
 
     // Liberar memoria
     free_stack(&stack);
@@ -58,26 +48,7 @@ Función is_valid_number(char *str) → verifica que sea número
 Función has_duplicates(argv) → detecta duplicados
 Función ft_init_stack(argv, argc) → crea la estructura
 
----
-simple:  3-5 números
-medium:  6-100 números
-complex: 100+ números
----
-
-medium.c - Ordenamiento para 6-100 números
-cvoid medium(t_stack **order)
-Estrategia típica (Radix o Quick Sort adaptado):
-- Divide números en 3 o 4 partes
-- Envía números menores a B
-- Ordena recursivamente
-- Reinseerta en orden
-
-complex.c - Ordenamiento para 100+ números
-cvoid complex(t_stack **order)
-Para el básico: copia la lógica de medium() o usa la misma
-
-PRIORIDAD 3: Polish (Opcional, después)
-
+///// PROBAR SIMPLEEEEE
 #include "push_swap.h" // Asegúrate de que este incluya libft.h y structur.h
 
 // Función rápida para crear nodos usando TU ft_lstnew
