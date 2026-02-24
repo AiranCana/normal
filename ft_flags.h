@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb.c                                               :+:      :+:    :+:   */
+/*   ft_flags.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 17:28:01 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/20 13:44:13 by acanadil         ###   ########.fr       */
+/*   Created: 2026/02/24 10:52:16 by acanadil          #+#    #+#             */
+/*   Updated: 2026/02/24 15:05:34 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../movements.h"
+#ifndef FT_FLAGS_H
+# define FT_FLAGS_H
 
-void	sb(t_stack **stack)
-{
-	t_bench	*bench;
+# include "structur.h"
 
-	bench = (*stack)->calc;
-	if (swap(&(*stack)->stackb))
-	{
-		write(1, "sb\n", 3);
-		bench->sb++;
-		bench->total++;
-	}
-}
+int		ft_flasize(t_flags *lst);
+void	ft_flaadd_back(t_flags **lst, t_flags *new);
+t_flags	*ft_flanew(int content, char *fla);
+void	ft_flaclear(t_flags **lst);
+
+#endif

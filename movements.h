@@ -6,14 +6,14 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:20:40 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/20 13:24:35 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/24 15:34:41 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MOVEMENTS_H
 # define MOVEMENTS_H
 
-# include "../push_swap.h"
+# include "push_swap.h"
 
 void	rra(t_stack **stack);
 void	rrb(t_stack **stack);

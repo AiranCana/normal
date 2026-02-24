@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:24:08 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/24 12:56:21 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/02/24 15:34:49 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <stddef.h>
 # include "libft/libft.h"
-# include "ft_flags/ft_flags.h"
-# include "movements/movements.h"
+# include "ft_flags.h"
+# include "movements.h"
 
 void	simple(t_stack **order);
 void	medium(t_stack **order);
