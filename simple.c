@@ -6,7 +6,7 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 10:41:14 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/02/24 12:49:24 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/02/24 12:58:37 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ simple:
 	- Once there are 3 elements left, apply a specific sort (sort_three).
 	- Finally, return all elements from B to A (pa) already sorted.
 */
-void	sort_three(t_stack **stack)
+static void	sort_three(t_stack **stack)
 {
 	int	first;
 	int	second;
@@ -37,19 +37,19 @@ void	sort_three(t_stack **stack)
 		return ;
 	if (first > second && first > third)
 	{
-		ra(*stack);
+		ra(stack);
 		if ((*stack)->stacka->num > (*stack)->stacka->next->num)
-			sa(*stack);
+			sa(stack);
 	}
 	else if (second > first && second > third)
 	{
-		rra(*stack);
+		rra(stack);
 		if ((*stack)->stacka->num > (*stack)->stacka->next->num)
-			sa(*stack);
+			sa(stack);
 	}
 	else
 	{
-		sa(*stack);
+		sa(stack);
 	}
 }
 
