@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   revrotate.c                                        :+:      :+:    :+:   */
+/*   ft_flasize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 13:21:23 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/24 11:29:02 by acanadil         ###   ########.fr       */
+/*   Created: 2026/02/24 10:50:55 by acanadil          #+#    #+#             */
+/*   Updated: 2026/02/24 11:00:43 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../movements.h"
+#include "ft_flags.h"
 
-int	revrotate(t_list **stack)
+int	ft_flasize(t_flags *lst)
 {
-	t_list	*aux;
-	t_list	*iter;
+	int		count;
+	t_flags	*list;
 
-	if (!stack || !(*stack) || !(*stack)->next)
+	count = 0;
+	if (!lst)
 		return (0);
-	iter = *stack;
-	aux = ft_lstlast(*stack);
-	while ((*stack)->next != aux)
+	++count;
+	list = lst;
+	while (list -> next)
 	{
-		*stack = (*stack)->next;
+		++count;
+		list = list -> next;
 	}
-	(*stack)->next = NULL;
-	*stack = iter;
-	ft_lstadd_front(stack, aux);
-	return (1);
+	return (count);
 }

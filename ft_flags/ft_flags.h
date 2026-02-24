@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   revrotate.c                                        :+:      :+:    :+:   */
+/*   ft_flags.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 13:21:23 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/24 11:29:02 by acanadil         ###   ########.fr       */
+/*   Created: 2026/02/24 10:52:16 by acanadil          #+#    #+#             */
+/*   Updated: 2026/02/24 11:07:37 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../movements.h"
+#ifndef FT_FLAGS_H
+# define FT_FLAGS_H
 
-int	revrotate(t_list **stack)
-{
-	t_list	*aux;
-	t_list	*iter;
+# include "../structur.h"
 
-	if (!stack || !(*stack) || !(*stack)->next)
-		return (0);
-	iter = *stack;
-	aux = ft_lstlast(*stack);
-	while ((*stack)->next != aux)
-	{
-		*stack = (*stack)->next;
-	}
-	(*stack)->next = NULL;
-	*stack = iter;
-	ft_lstadd_front(stack, aux);
-	return (1);
-}
+int		ft_flasize(t_flags *lst);
+void	ft_flaadd_back(t_flags **lst, t_flags *new);
+t_flags	*ft_flanew(int content, char *fla);
+
+#endif

@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   revrotate.c                                        :+:      :+:    :+:   */
+/*   ft_flanew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 13:21:23 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/24 11:29:02 by acanadil         ###   ########.fr       */
+/*   Created: 2026/02/24 11:05:25 by acanadil          #+#    #+#             */
+/*   Updated: 2026/02/24 11:07:27 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../movements.h"
+#include "ft_flags.h"
 
-int	revrotate(t_list **stack)
+t_flags	*ft_flanew(int content, char *fla)
 {
-	t_list	*aux;
-	t_list	*iter;
+	t_flags	*new;
 
-	if (!stack || !(*stack) || !(*stack)->next)
-		return (0);
-	iter = *stack;
-	aux = ft_lstlast(*stack);
-	while ((*stack)->next != aux)
-	{
-		*stack = (*stack)->next;
-	}
-	(*stack)->next = NULL;
-	*stack = iter;
-	ft_lstadd_front(stack, aux);
-	return (1);
+	new = malloc(sizeof (t_list));
+	if (!new)
+		return (NULL);
+	new -> num = content;
+	new -> next = NULL;
+	new -> flag = fla;
+	return (new);
 }

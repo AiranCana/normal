@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 12:50:27 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/23 12:59:24 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/24 10:42:13 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,13 @@ typedef struct s_stack
 	struct s_list	*stacka;
 	struct s_list	*stackb;
 }	t_stack;
+
+typedef struct s_flags
+{
+	int				num;
+	int				pos;
+	char			*flag;
+	struct s_flags	*next;
+}	t_flags;
 
 #endif

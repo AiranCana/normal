@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   revrotate.c                                        :+:      :+:    :+:   */
+/*   parse_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 13:21:23 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/24 11:29:02 by acanadil         ###   ########.fr       */
+/*   Created: 2026/02/24 09:59:52 by acanadil          #+#    #+#             */
+/*   Updated: 2026/02/24 11:30:51 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../movements.h"
+#include "structur.h"
 
-int	revrotate(t_list **stack)
+static size_t	num_number(char **arg, t_flags **flags)
 {
-	t_list	*aux;
-	t_list	*iter;
+	
+}
 
-	if (!stack || !(*stack) || !(*stack)->next)
-		return (0);
-	iter = *stack;
-	aux = ft_lstlast(*stack);
-	while ((*stack)->next != aux)
-	{
-		*stack = (*stack)->next;
-	}
-	(*stack)->next = NULL;
-	*stack = iter;
-	ft_lstadd_front(stack, aux);
-	return (1);
+int	**parser_int(char **arg, t_flags **flags)
+{
+	size_t	size;
+	int		**numbers;
+
+	size = num_number(arg, flags);
+	if (size == 0)
+		return (NULL);
+	numbers = malloc(sizeof (int *) * size);
 }
