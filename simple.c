@@ -6,7 +6,7 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 10:41:14 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/02/23 18:01:33 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/02/24 11:24:38 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 sort_three: sorted - first bigger - second bigger - third bigger(else)
 
 simple:
-	- loop until a is empty or sorted
-	- if only 3 items left sort them quickly and exit loop
-	- find the smallest number and its position in a
-	- if its in the first half rotate up (ra)
-	- otherwise rotate down (rra) to bring it to the top
-	- move the smallest element to stack b
-	- return everything to Stack A in the correct order
+	- The goal is to reduce stack A until only 3 elements remain.
+	- In each iteration, find the smallest number (min) in A.
+	- Calculate the distance from min to the top to choose the shortest path:
+    - If it is in the first half, use normal rotation (ra).
+	- If it is in the second half, use reverse rotation (rra).
+	- Send the smallest element to B (pb).
+	- Once there are 3 elements left, apply a specific sort (sort_three).
+	- Finally, return all elements from B to A (pa) already sorted.
 */
 void	sort_three(t_stack **stack)
 {
@@ -54,23 +55,18 @@ void	sort_three(t_stack **stack)
 
 void	simple(t_stack **stack)
 {
+	int	current_size;
 	int	min;
 	int	pos;
-	int	size;
 
 	if (!stack || !(*stack) || !(*stack)->stacka)
 		return ;
-	while ((*stack)->stacka && !is_sorted((*stack)->stacka))
+	while (ft_lstsize((*stack)->stacka) > 3 && !is_sorted((*stack)->stacka))
 	{
-		size = ft_lstsize((*stack)->stacka);
-		if (size == 3)
-		{
-			sort_three(stack);
-			break ;
-		}
+		current_size = ft_lstsize((*stack)->stacka);
 		min = get_min((*stack)->stacka);
 		pos = get_position((*stack)->stacka, min);
-		if (pos <= size / 2)
+		if (pos <= current_size / 2)
 		{
 			while ((*stack)->stacka->num != min)
 				ra(*stack);
@@ -82,6 +78,8 @@ void	simple(t_stack **stack)
 		}
 		pb(*stack);
 	}
+	if (!is_sorted((*stack)->stacka))
+		sort_three(stack);
 	while ((*stack)->stackb != NULL)
 		pa(*stack);
 }
