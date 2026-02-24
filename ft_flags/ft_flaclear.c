@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flags.h                                         :+:      :+:    :+:   */
+/*   ft_flaclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 10:52:16 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/24 12:35:01 by acanadil         ###   ########.fr       */
+/*   Created: 2026/02/24 12:33:57 by acanadil          #+#    #+#             */
+/*   Updated: 2026/02/24 12:34:51 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FLAGS_H
-# define FT_FLAGS_H
+#include "ft_flags.h"
 
-# include "../structur.h"
+static void	clean(t_flags *lst)
+{
+	if (lst -> next)
+		clean(lst -> next);
+	free(lst);
+}
 
-int		ft_flasize(t_flags *lst);
-void	ft_flaadd_back(t_flags **lst, t_flags *new);
-t_flags	*ft_flanew(int content, char *fla);
-void	ft_flaclear(t_flags **lst);
-
-#endif
+void	ft_flaclear(t_flags **lst)
+{
+	if (!lst || !*lst)
+		return ;
+	clean(*lst);
+	*lst = NULL;
+}

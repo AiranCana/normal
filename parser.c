@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 12:46:43 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/24 11:57:51 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/24 12:32:35 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	no_repit(t_flags *flags)
 	return (1);
 }
 
-void	found_flags(char **args, t_flags **flags)
+static void	found_flags(char **args, t_flags **flags)
 {
 	char	*d[5];
 	int		p;
@@ -86,6 +86,5 @@ int	**parser(char **arg, t_flags **flags)
 		return (NULL);
 	if (!no_repit(*flags))
 		return (NULL);
-	//return (parser_int(arg, flags));
-	return (NULL);
+	return (parser_int(arg, flags));
 }

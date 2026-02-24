@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 12:17:52 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/02/20 12:46:02 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/02/24 12:36:30 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,13 @@ int	get_position(t_list *stack, int value)
 	return (-1);
 }
 
-void free_stack(t_stack **stack)
+void	free_stack(t_stack **stack)
 {
-    if (!stack || !(*stack))
-        return;
-    ft_lstclear(&((*stack)->stacka));// free stacka
-    ft_lstclear(&((*stack)->stackb));//free stackb
-    free((*stack)->calc);//free t_bench
-    free(*stack);//free t_stack
-    *stack = NULL;// Paso 5: Marcar NULL
+	if (!stack || !(*stack))
+		return ;
+	ft_lstclear(&((*stack)->stacka));// free stacka
+	ft_lstclear(&((*stack)->stackb));//free stackb
+	free((*stack)->calc);//free t_bench
+	free(*stack);//free t_stack
+	*stack = NULL;// Paso 5: Marcar NULL
 }
