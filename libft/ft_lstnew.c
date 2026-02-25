@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 19:33:19 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/19 12:14:24 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/25 16:38:51 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ t_list	*ft_lstnew(int content)
 {
 	t_list	*new;
 
-	new = malloc(sizeof (t_list));
+	new = ft_calloc(1, sizeof(t_list));
 	if (!new)
 		return (NULL);
-	new -> num = content;
-	new -> next = NULL;
+	new->num = content;
 	return (new);
 }
