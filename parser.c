@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 12:46:43 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/24 12:32:35 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/26 15:36:59 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ static t_flags	*addflag(int fl, int p, char *fla)
 {
 	t_flags	*flag;
 
-	flag = ft_flanew(fl, fla);
-	if (flag)
-		flag -> pos = p;
+	flag = ft_flanew(fl, p, fla);
 	return (flag);
 }
 
@@ -51,14 +49,33 @@ static int	no_repit(t_flags *flags)
 	return (1);
 }
 
+static void	foun_in_arg(char *args, t_flags **flags, char *d, int p[2])
+{
+	char	*str;
+
+	while (*args)
+	{
+		if (strverif(args, d))
+		{
+			str = ft_strnstr(args, d, ft_strlen(args));
+			ft_flaadd_back(flags, addflag(p[1], p[0], str));
+			while (args != str)
+				args++;
+			args++;
+		}
+		else
+			break ;
+	}
+}
+
 static void	found_flags(char **args, t_flags **flags)
 {
 	char	*d[5];
-	int		p;
-	int		fl;
+	int		p[2];
+	char	*aux;
 
-	p = 0;
-	fl = 0;
+	p[0] = 0;
+	p[1] = 0;
 	d[0] = "--simple";
 	d[1] = "--medium";
 	d[2] = "--complex";
@@ -66,25 +83,30 @@ static void	found_flags(char **args, t_flags **flags)
 	d[4] = "--bench";
 	while (*args)
 	{
-		fl = 0;
-		while (fl < 5)
+		p[1] = 0;
+		while (p[1] < 5)
 		{
-			if (strverif(*args, d[fl]))
-				ft_flaadd_back(flags, addflag(fl, p,
-						ft_strnstr(*args, d[fl], ft_strlen(*args))));
-			fl++;
+			aux = *args;
+			foun_in_arg(aux, flags, d[p[1]], p);
+			p[1]++;
 		}
-		p++;
+		p[0]++;
 		args++;
 	}
 }
 
-int	**parser(char **arg, t_flags **flags)
+t_list	*parser(char **arg, t_flags **flags)
 {
 	found_flags(arg, flags);
 	if (ft_flasize(*flags) > 2)
-		return (NULL);
+	{
+		ft_flaclear(flags);
+		return (0);
+	}
 	if (!no_repit(*flags))
-		return (NULL);
-	return (parser_int(arg, flags));
+	{
+		ft_flaclear(flags);
+		return (0);
+	}
+	return (parser_int(arg, *flags));
 }

@@ -6,39 +6,100 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 09:59:52 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/24 14:49:26 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/26 15:36:50 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structur.h"
+#include "ft_flags.h"
 
-static size_t	num_number(char **arg, t_flags **flags)
+static t_flags	*asignflag(const t_flags *flags, int j)
+{
+	t_flags	*flag;
+
+	flag = NULL;
+	while (flags)
+	{
+		if (flags -> pos == j)
+			ft_flaadd_back(&flag, ft_flanew(flags->num, flags->pos, flags->flag));
+		flags = flags -> next;
+	}
+	return (flag);
+}
+
+static int	verifflag(const t_flags *flag, char **leter)
+{
+	char	*d;
+
+	d = *leter;
+	while (flag)
+	{
+		if (flag->flag == d)
+		{
+			while (*d && *d != ' ')
+				d++;
+			*leter = d;
+			return (1);
+		}
+		flag = flag -> next;
+	}
+	return (0);
+}
+
+static int	letercorrect(char **arg)
+{
+	char	*aux;
+
+	aux = *arg;
+	if (!aux)
+		return (0);
+	if (*aux == '-')
+		aux++;
+	while (aux && ft_isdigit(*aux))
+		aux++;
+	*arg = aux;
+	if (*aux != ' ' && !ft_isdigit(*aux))
+		return (0);
+	return (1);
+}
+
+static size_t	num_number(char **arg, t_flags *flags)
 {
 	size_t	i;
+	int		j;
+	char	*ptr;
+	t_flags	*flag;
 
+	j = 0;
 	i = 0;
-	while (*arg)
+	while (arg[j])
 	{
-		while (**arg)
+		ptr = arg[j];
+		flag = asignflag(flags, j);
+		while (*ptr)
 		{
-			if (**arg == ' ')
-			{
-				while (**arg && **arg != )
-			}
+			while (*ptr && *ptr == ' ')
+				ptr++;
+			if (verifflag(flag, &ptr))
+				continue ;
+			if (!letercorrect(&ptr))
+				return (0);
+			i++;
 		}
-		arg++;
+		ft_flaclear(&flag);
+		j++;
 	}
 	return (i);
 }
 
-int	**parser_int(char **arg, t_flags **flags)
+t_list	*parser_int(char **arg, t_flags *flags)
 {
 	size_t	size;
-	int		**numbers;
+	t_list	*numbers;
 
 	size = num_number(arg, flags);
 	if (size == 0)
 		return (NULL);
-	numbers = malloc(sizeof (int *) * size);
+	numbers = NULL;
 	return (numbers);
 }

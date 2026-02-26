@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strverif.c                                         :+:      :+:    :+:   */
+/*   ft_atoi_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 16:21:43 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/25 11:22:49 by acanadil         ###   ########.fr       */
+/*   Created: 2026/01/14 12:19:35 by acanadil          #+#    #+#             */
+/*   Updated: 2026/02/26 10:43:01 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	strverif(char *str1, char *str2)
+int	ft_atoi_long(const char *nptr)
 {
-	char	*s;
-	int		i;
+	long	num;
+	int		sign;
 
-	i = 0;
-	s = ft_strnstr(str1, str2, ft_strlen(str1));
-	if (!s)
-		return (0);
-	if (!s[ft_strlen(str2)] || s[ft_strlen(str2)] == ' ')
+	sign = 1;
+	num = 0;
+	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13))
+		++nptr;
+	if (0 == ft_isdigit(*nptr))
 	{
-		if (s == str1)
-			return (1);
-		while ((str1 + i) != s)
-			i++;
-		i--;
-		if (str1[i] == ' ')
-			return (1);
+		if (*nptr == '+' || *nptr == '-')
+		{
+			if (*nptr == '-')
+				sign *= -1;
+		}
+		else
+			return (0);
+		++nptr;
 	}
-	return (0);
+	while (*nptr && 0 != ft_isdigit(*nptr))
+	{
+		num *= 10;
+		num += (*(nptr++) - 48);
+	}
+	return (num * sign);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:24:08 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/25 11:54:10 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/02/26 15:37:13 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	medium(t_stack **order);
 void	complex(t_stack **order);
 void	adaptiv(t_stack **order);
 int		strverif(char *str1, char *str2);
-int		**parser(char **arg, t_flags **flags);
-int		**parser_int(char **arg, t_flags **flags);
+t_list	*parser(char **arg, t_flags **flags);
+t_list	*parser_int(char **arg, t_flags *flags);
 
 int		get_min(t_list *stack);
 int		get_max(t_list *stack);

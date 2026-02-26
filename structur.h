@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 12:50:27 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/24 15:06:40 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/25 11:06:19 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_bench
 {
 	float	disorder;
 	char	*strategy;
+	char	*flag;
 	int		total;
 	int		sa;
 	int		sb;
