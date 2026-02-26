@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:24:08 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/26 15:37:13 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/26 15:52:47 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ void	adaptiv(t_stack **order);
 int		strverif(char *str1, char *str2);
 t_list	*parser(char **arg, t_flags **flags);
 t_list	*parser_int(char **arg, t_flags *flags);
+t_flags	*asignflag(const t_flags *flags, int j);
+int		verifflag(const t_flags *flag, char **leter);
+int		letercorrect(char **arg);
 
 int		get_min(t_list *stack);
 int		get_max(t_list *stack);

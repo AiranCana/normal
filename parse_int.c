@@ -6,28 +6,32 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 09:59:52 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/26 15:36:50 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/26 15:56:20 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structur.h"
 #include "ft_flags.h"
 
-static t_flags	*asignflag(const t_flags *flags, int j)
+t_flags	*asignflag(const t_flags *flags, int j)
 {
 	t_flags	*flag;
+	t_flags	*aux;
 
 	flag = NULL;
 	while (flags)
 	{
 		if (flags -> pos == j)
-			ft_flaadd_back(&flag, ft_flanew(flags->num, flags->pos, flags->flag));
+		{
+			aux = ft_flanew(flags->num, flags->pos, flags->flag);
+			ft_flaadd_back(&flag, aux);
+		}
 		flags = flags -> next;
 	}
 	return (flag);
 }
 
-static int	verifflag(const t_flags *flag, char **leter)
+int	verifflag(const t_flags *flag, char **leter)
 {
 	char	*d;
 
@@ -46,7 +50,7 @@ static int	verifflag(const t_flags *flag, char **leter)
 	return (0);
 }
 
-static int	letercorrect(char **arg)
+int	letercorrect(char **arg)
 {
 	char	*aux;
 
