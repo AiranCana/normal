@@ -6,12 +6,13 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 09:59:52 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/26 15:56:20 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/27 15:26:55 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "structur.h"
 #include "ft_flags.h"
+#include "push_swap.h"
 
 t_flags	*asignflag(const t_flags *flags, int j)
 {
@@ -50,7 +51,7 @@ int	verifflag(const t_flags *flag, char **leter)
 	return (0);
 }
 
-int	letercorrect(char **arg)
+static int	letercorrect(char **arg)
 {
 	char	*aux;
 
@@ -62,8 +63,11 @@ int	letercorrect(char **arg)
 	while (aux && ft_isdigit(*aux))
 		aux++;
 	*arg = aux;
-	if (*aux != ' ' && !ft_isdigit(*aux))
+	if (*aux != ' ' && *aux != '\0' && !ft_isdigit(*aux))
+	{
+		write(2, "Error\n", 6);
 		return (0);
+	}
 	return (1);
 }
 
@@ -96,7 +100,7 @@ static size_t	num_number(char **arg, t_flags *flags)
 	return (i);
 }
 
-t_list	*parser_int(char **arg, t_flags *flags)
+t_list	*parser_int(char **arg, t_flags *flags, int f(void))
 {
 	size_t	size;
 	t_list	*numbers;
@@ -105,5 +109,6 @@ t_list	*parser_int(char **arg, t_flags *flags)
 	if (size == 0)
 		return (NULL);
 	numbers = NULL;
+	save_numbers(arg, flags, &numbers, f);
 	return (numbers);
 }

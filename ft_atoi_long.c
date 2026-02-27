@@ -6,13 +6,13 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 12:19:35 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/26 10:43:01 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/27 12:45:33 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 
-int	ft_atoi_long(const char *nptr)
+long	ft_atoi_long(const char *nptr)
 {
 	long	num;
 	int		sign;

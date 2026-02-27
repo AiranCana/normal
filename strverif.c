@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:21:43 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/25 11:22:49 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/27 15:58:43 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,19 @@ int	strverif(char *str1, char *str2)
 		if (str1[i] == ' ')
 			return (1);
 	}
+	return (0);
+}
+
+int	strverifall(char *str1, char *str2)
+{
+	while (str1 && str2)
+	{
+		if (*str1 != *str2)
+			return (1);
+		str1++;
+		str2++;
+	}
+	if (*str1 != *str2)
+		return (1);
 	return (0);
 }
