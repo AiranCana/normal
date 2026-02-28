@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 09:44:31 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/18 13:17:31 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/28 12:29:08 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static char	*join(char *buf, char *rea, int rbuf)
 
 	rea[rbuf] = 0;
 	if (!buf)
-		temp = ft_substr(rea, ft_strlen(rea));
+		temp = ft_substr_gnl(rea, ft_strlen_gnl(rea));
 	else
-		temp = going_free(buf, ft_strjoin(buf, rea));
+		temp = going_free(buf, ft_strjoin_gnl(buf, rea));
 	if (!temp)
 		free (rea);
 	return (temp);
@@ -33,11 +33,11 @@ static char	*gline(char *buf)
 
 	if (!buf || !buf[0])
 		return (NULL);
-	aux = ft_strchr(buf, BREAKER);
+	aux = ft_strchr_gnl(buf, BREAKER);
 	if (aux)
-		line = ft_substr(buf, 1 + aux - buf);
+		line = ft_substr_gnl(buf, 1 + aux - buf);
 	else
-		line = ft_substr(buf, ft_strlen(buf));
+		line = ft_substr_gnl(buf, ft_strlen_gnl(buf));
 	if (!line)
 	{
 		free (buf);
@@ -55,12 +55,12 @@ static char	*nline(char *buf)
 		free(buf);
 		return (NULL);
 	}
-	c = ft_strchr(buf, BREAKER);
+	c = ft_strchr_gnl(buf, BREAKER);
 	if (c)
 	{
 		if (*c == BREAKER)
 			c++;
-		c = ft_substr(c, ft_strlen(c));
+		c = ft_substr_gnl(c, ft_strlen_gnl(c));
 	}
 	free(buf);
 	return (c);
@@ -87,7 +87,7 @@ static char	*reader(int fd, char *buf)
 		buf = join(buf, rfile, rbuf);
 		if (!buf)
 			return (NULL);
-		else if (ft_strchr(buf, BREAKER))
+		else if (ft_strchr_gnl(buf, BREAKER))
 			return (going_free(rfile, buf));
 	}
 	free(rfile);

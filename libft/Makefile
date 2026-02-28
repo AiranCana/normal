@@ -50,15 +50,18 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
+	@echo "\033[0;32m ✓ Libft precopilada\n\033[0m"
 
 %.o: %.c
 	@cc -c $(CFLAGS) $< -o $@ 
 
 clean:
 	@rm -rf $(OBJ)
+	@echo "\033[0;31m ✗ Eliminar los .o de la libft\n\033[0m"
 
 fclean: clean
 	@rm -f $(NAME)
+	@echo "\033[0;31m ✗ Eliminar el precopilado de la libft\n\033[0m"
 
 re: fclean all
 

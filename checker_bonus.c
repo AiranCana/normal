@@ -6,16 +6,36 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 15:15:22 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/27 16:05:36 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/28 12:55:35 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "gnl/get_next_line.h"
 
-t_stack	*asign(t_list *a)
+static void	print_sol(t_stack *stack, t_flags *flags)
 {
-	
+	if (is_sorted(stack -> stacka))
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	ft_flaclear(&flags);
+	ft_lstclear(&(stack ->stacka));
+	ft_lstclear(&(stack ->stackb));
+	free(stack -> calc);
+	free(stack);
+}
+
+static t_stack	*asign(t_list *a)
+{
+	t_stack	*stack;
+	t_bench	*bench;
+
+	stack = ft_calloc(sizeof (t_stack), 1);
+	bench = ft_calloc(sizeof (t_bench), 1);
+	stack -> calc = bench;
+	stack -> stacka = a;
+	return (stack);
 }
 
 int	error(void)
@@ -35,7 +55,7 @@ int	main(int argv, char **args)
 	if (argv < 1)
 		return (0);
 	args++;
-	stacka = parser(args, &flags, error);
+	stacka = parser(args, &flags, error, 0);
 	if (!stacka)
 		return (0);
 	stack = asign(stacka);
@@ -45,7 +65,6 @@ int	main(int argv, char **args)
 		makemove(&stack, s);
 		s = get_next_line(0);
 	}
-	print_sol(stack -> stacka);
-	freeall(flags, stack);
+	print_sol(stack, flags);
 	return (0);
 }

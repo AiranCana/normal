@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 12:46:43 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/27 15:27:20 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/28 11:43:52 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,20 +95,20 @@ static void	found_flags(char **args, t_flags **flags)
 	}
 }
 
-t_list	*parser(char **arg, t_flags **flags, int f(void))
+t_list	*parser(char **arg, t_flags **flags, int f(void), int fla)
 {
 	found_flags(arg, flags);
-	if (ft_flasize(*flags) > 2)
+	if (ft_flasize(*flags) > fla)
 	{
 		write(2, "Error\n", 6);
 		ft_flaclear(flags);
-		return (0);
+		return (NULL);
 	}
 	if (!no_repit(*flags))
 	{
 		write(2, "Error\n", 6);
 		ft_flaclear(flags);
-		return (0);
+		return (NULL);
 	}
 	return (parser_int(arg, *flags, f));
 }

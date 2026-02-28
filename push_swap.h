@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:24:08 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/27 15:59:26 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/02/28 11:42:20 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	medium(t_stack **order);
 void	complex(t_stack **order);
 void	adaptiv(t_stack **order);
 int		strverif(char *str1, char *str2);
-t_list	*parser(char **arg, t_flags **flags, int f(void));
+t_list	*parser(char **arg, t_flags **flags, int f(void), int fla);
 t_list	*parser_int(char **arg, t_flags *flags, int f(void));
 t_flags	*asignflag(const t_flags *flags, int j);
 int		verifflag(const t_flags *flag, char **leter);
