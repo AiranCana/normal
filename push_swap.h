@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:24:08 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/28 11:42:20 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:06:38 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ int		get_position(t_list *stack, int value);
 void	free_stack(t_stack **stack);
 float	disorder(t_list *stack_a);
 void	print_disorder(float d);
+void	tiny_sort(t_stack **stack);
 
 #endif

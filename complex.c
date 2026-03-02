@@ -6,7 +6,7 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 12:26:07 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/02/26 16:18:01 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:04:34 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	count_bits(int max_n)
 	return (n_bits);
 }
 
-void	assign_pos(t_list *stacka)
+static void	assign_pos(t_list *stacka)
 {
 	t_list	*current;
 	t_list	*compare;

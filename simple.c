@@ -6,7 +6,7 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 10:41:14 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/02/24 12:58:37 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:08:06 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,34 +24,6 @@ simple:
 	- Once there are 3 elements left, apply a specific sort (sort_three).
 	- Finally, return all elements from B to A (pa) already sorted.
 */
-static void	sort_three(t_stack **stack)
-{
-	int	first;
-	int	second;
-	int	third;
-
-	first = (*stack)->stacka->num;
-	second = (*stack)->stacka->next->num;
-	third = (*stack)->stacka->next->next->num;
-	if (first < second && second < third)
-		return ;
-	if (first > second && first > third)
-	{
-		ra(stack);
-		if ((*stack)->stacka->num > (*stack)->stacka->next->num)
-			sa(stack);
-	}
-	else if (second > first && second > third)
-	{
-		rra(stack);
-		if ((*stack)->stacka->num > (*stack)->stacka->next->num)
-			sa(stack);
-	}
-	else
-	{
-		sa(stack);
-	}
-}
 
 static void	push_min_to_b(t_stack **stack)
 {
@@ -77,12 +49,20 @@ static void	push_min_to_b(t_stack **stack)
 
 void	simple(t_stack **stack)
 {
+	int	size;
+
 	if (!stack || !(*stack) || !(*stack)->stacka)
 		return ;
+	size = ft_lstsize((*stack)->stacka);
+	if (size <= 3)
+	{
+		tiny_sort(stack);
+		return ;
+	}
 	while (ft_lstsize((*stack)->stacka) > 3 && !is_sorted((*stack)->stacka))
 		push_min_to_b(stack);
 	if (!is_sorted((*stack)->stacka))
-		sort_three(stack);
+		tiny_sort(stack);
 	while ((*stack)->stackb != NULL)
 		pa(stack);
 }
