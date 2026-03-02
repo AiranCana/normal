@@ -6,7 +6,7 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 12:26:07 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/03/02 17:03:43 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:21:41 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	count_bits(int max_n)
 	return (n_bits);
 }
 
-static void	radix_process(t_stack **stack, int i, int size)
+static void	radix_part(t_stack **stack, int i, int size)
 {
 	int	j;
 
@@ -84,7 +84,7 @@ void	complex(t_stack **stack)
 	i = 0;
 	while (i < max_bits)
 	{
-		radix_process(stack, i, size);
+		radix_part(stack, i, size);
 		i++;
 	}
 }
