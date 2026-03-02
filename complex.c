@@ -6,7 +6,7 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 12:26:07 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/03/02 12:26:03 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/03/02 13:35:17 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@
 ** -  0  [1] [0] (Value: 2) -> Shift  1: 2 != 0 (True) -> n_bits = 2
 ** -  0   0  [1] (Value: 1) -> Shift  2: 1 != 0 (True) -> n_bits = 3
 ** -  0   0   0  (Value: 0) -> Offset 3: 0 != 0 (False) -> Returns 3
+
+** assign_pos
+** Calculates and assigns a relative rank (0 to N-1) to each node.
+** It stores this rank in the 'pos' field of the structure, allowing 
+** the Radix algorithm to sort based on relative order rather than 
+** the raw 'num' values, which could be negative or very large.
 
 
 */
@@ -68,29 +74,30 @@ static void	assign_pos(t_list *stacka)
 
 void	complex(t_stack **stack)
 {
-	int	max_bits;
 	int	i;
 	int	j;
 	int	size;
+	int	max_bits;
 
 	if (!stack || !(*stack) || !(*stack)->stacka)
 		return ;
 	assign_pos((*stack)->stacka);
-	max_bits = count_bits(get_max((*stack)->stacka));
+	size = ft_lstsize((*stack)->stacka);
+	max_bits = count_bits(size - 1);
 	i = 0;
 	while (i < max_bits)
 	{
 		j = 0;
-		size = ft_lstsize((*stack)->stacka);
-		while (j++ < size)
+		while (j < size)
 		{
 			if ((((*stack)->stacka->pos >> i) & 1) == 1)
 				ra(stack);
 			else
 				pb(stack);
+			j++;
 		}
+		while ((*stack)->stackb != NULL)
+			pa(stack);
 		i++;
 	}
-	while ((*stack)->stackb != NULL)
-		pa(stack);
 }
