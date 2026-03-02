@@ -6,14 +6,12 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 10:41:14 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/03/02 11:08:06 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:29:08 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 /*
-sort_three: sorted - first bigger - second bigger - third bigger(else)
-
 simple:
 	- The goal is to reduce stack A until only 3 elements remain.
 	- In each iteration, find the smallest number (min) in A.

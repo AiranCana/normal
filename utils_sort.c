@@ -6,11 +6,14 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 11:02:07 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/03/02 11:06:33 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:29:16 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+/*
+sort_three: sorted - first bigger - second bigger - third bigger(else)
+*/
 
 static void	sort_three(t_stack **stack)
 {
