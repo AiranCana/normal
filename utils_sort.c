@@ -6,13 +6,19 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 11:02:07 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/03/02 11:29:16 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:02:55 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 /*
 sort_three: sorted - first bigger - second bigger - third bigger(else)
+
+** assign_pos
+** Calculates and assigns a relative rank (0 to N-1) to each node.
+** It stores this rank in the 'pos' field of the structure, allowing 
+** the Radix algorithm to sort based on relative order rather than 
+** the raw 'num' values, which could be negative or very large.
 */
 
 static void	sort_three(t_stack **stack)
@@ -59,5 +65,27 @@ void	tiny_sort(t_stack **stack)
 	else if (size == 3)
 	{
 		sort_three(stack);
+	}
+}
+
+void	assign_pos(t_list *stacka)
+{
+	t_list	*current;
+	t_list	*compare;
+	int		count;
+
+	current = stacka;
+	while (current != NULL)
+	{
+		count = 0;
+		compare = stacka;
+		while (compare != NULL)
+		{
+			if (compare->num < current->num)
+				count++;
+			compare = compare->next;
+		}
+		current->pos = count;
+		current = current->next;
 	}
 }
