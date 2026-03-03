@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 12:25:33 by acanadil          #+#    #+#             */
-/*   Updated: 2026/03/02 13:44:04 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/03/03 10:53:58 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,14 @@ static void	print_ryrr(t_bench *bench)
 
 void	print_bench(t_bench *bench)
 {
-	write(2, "[bench] disorder:   ", 21);
+	write(2, "[bench] disorder:   ", 20);
 	print_disorder(bench -> disorder);
-	write(2, "[bench] strategy:   ", 21);
+	write(2, "[bench] strategy:   ", 20);
 	write(2, bench -> flag, ft_strlen(bench -> flag));
 	write(2, " / ", 3);
 	write(2, bench -> strategy, ft_strlen(bench -> strategy));
 	write(2, "\n", 1);
-	write(2, "[bench] total_ops:  ", 21);
+	write(2, "[bench] total_ops:  ", 20);
 	print_num(bench -> total);
 	write(2, "\n", 1);
 	write(2, "[bench] ", 8);

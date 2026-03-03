@@ -6,4 +6,4 @@ checker
 */*.o
 *.o
 push_swap
-bench.txt
+*.txt

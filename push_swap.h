@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 13:24:08 by acanadil          #+#    #+#             */
-/*   Updated: 2026/03/02 17:03:10 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/03/03 13:23:34 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	medium(t_stack **order);
 void	complex(t_stack **order);
 void	adaptiv(t_stack **order);
 int		strverif(char *str1, char *str2);
-t_list	*parser(char **arg, t_flags **flags, int fla);
-t_list	*parser_int(char **arg, t_flags *flags);
+t_list	*parser(char **arg, t_flags **flags, int fla, int w);
+t_list	*parser_int(char **arg, t_flags *flags, int w);
 t_flags	*asignflag(const t_flags *flags, int j);
 int		verifflag(const t_flags *flag, char **leter);
 long	ft_atoi_long(const char *nptr);

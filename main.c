@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 10:36:03 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/03/02 16:00:06 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/03/03 13:26:22 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,25 +50,25 @@ static void	execute(t_stack *sta, t_flags *flags)
 	float	d;
 
 	d = disorder(sta -> stacka);
-	if (found_flag(flags, 0))
+	if (found_flag(flags, 1))
 	{
 		asign_bench(sta, "Simple", "O(n^2)", d);
 		simple(&sta);
 	}
-	else if (found_flag(flags, 1))
-	{
-		asign_bench(sta, "Medium", "O(n^2)", d);
-		medium(&sta);
-	}
 	else if (found_flag(flags, 2))
 	{
-		asign_bench(sta, "Complex", "O(n log n)", d);
+		asign_bench(sta, "Medium", "O(n√n)", d);
 		simple(&sta);
+	}
+	else if (found_flag(flags, 3))
+	{
+		asign_bench(sta, "Complex", "O(n log n)", d);
+		complex(&sta);
 	}
 	else
 	{
 		asign_bench(sta, "Adaptive", sel_strat(d), d);
-		simple(&sta);
+		adaptiv(&sta);
 	}
 }
 
@@ -79,15 +79,18 @@ int	main(int argc, char **argv)
 	t_flags	*flags;
 
 	flags = NULL;
-	if (argc < 1)
+	if (argc <= 1)
 		return (0);
 	argv++;
-	stacka = parser(argv, &flags, 2);
+	stacka = parser(argv, &flags, 2, 0);
 	if (!stacka)
+	{
+		write(2, "Error\n", 6);
 		return (0);
+	}
 	stack = asign(stacka);
 	execute(stack, flags);
-	if (found_flag(flags, 4))
+	if (found_flag(flags, 0))
 		print_bench(stack -> calc);
 	ft_flaclear(&flags);
 	free_stack(&stack);

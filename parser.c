@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 12:46:43 by acanadil          #+#    #+#             */
-/*   Updated: 2026/03/02 11:38:38 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/03/03 13:22:40 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,21 @@ static int	no_repit(t_flags *flags)
 	t_flags	*bench;
 	t_flags	*flag;
 	int		count;
+	int		countbench;
 
+	countbench = 0;
 	count = 0;
 	flag = flags;
 	bench = flags;
 	while (flag)
 	{
-		if (flag -> num < 4)
-			count ++;
+		if (flag -> num > 0)
+			count++;
+		if (bench -> num == 0)
+			countbench++;
 		flag = flag -> next;
 	}
-	if (count > 1)
-		return (0);
-	count = 0;
-	while (bench)
-	{
-		if (bench -> num == 4)
-			count ++;
-		bench = bench -> next;
-	}
-	if (count > 1)
+	if (count > 1 || countbench > 1)
 		return (0);
 	return (1);
 }
@@ -70,17 +65,17 @@ static void	foun_in_arg(char *args, t_flags **flags, char *d, int p[2])
 
 static void	found_flags(char **args, t_flags **flags)
 {
-	char	*d[5];
+	char	*d[6];
 	int		p[2];
 	char	*aux;
 
 	p[0] = 0;
 	p[1] = 0;
-	d[0] = "--simple";
-	d[1] = "--medium";
-	d[2] = "--complex";
-	d[3] = "--adaptive";
-	d[4] = "--bench";
+	d[0] = "--bench";
+	d[1] = "--simple";
+	d[2] = "--medium";
+	d[3] = "--complex";
+	d[4] = "--adaptive";
 	while (*args)
 	{
 		p[1] = 0;
@@ -95,7 +90,7 @@ static void	found_flags(char **args, t_flags **flags)
 	}
 }
 
-t_list	*parser(char **arg, t_flags **flags, int fla)
+t_list	*parser(char **arg, t_flags **flags, int fla, int w)
 {
 	found_flags(arg, flags);
 	if (ft_flasize(*flags) > fla)
@@ -110,5 +105,5 @@ t_list	*parser(char **arg, t_flags **flags, int fla)
 		ft_flaclear(flags);
 		return (NULL);
 	}
-	return (parser_int(arg, *flags));
+	return (parser_int(arg, *flags, w));
 }

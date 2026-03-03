@@ -6,7 +6,7 @@
 /*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 12:57:52 by acanadil          #+#    #+#             */
-/*   Updated: 2026/02/24 15:31:48 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/03/03 12:10:00 by acanadil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,11 @@ int	revrotate(t_list **stack)
 		return (0);
 	iter = *stack;
 	aux = ft_lstlast(*stack);
-	while ((*stack)->next != aux)
+	while (iter->next != aux)
 	{
-		*stack = (*stack)->next;
+		iter = iter->next;
 	}
-	(*stack)->next = NULL;
-	*stack = iter;
+	iter->next = NULL;
 	ft_lstadd_front(stack, aux);
 	return (1);
 }
