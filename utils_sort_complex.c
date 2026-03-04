@@ -6,7 +6,7 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 11:35:12 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/03/04 17:41:39 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/03/04 18:00:58 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,8 @@ void	sort_three_by_pos(t_stack **stack, int print)
 
 void	sort_four_by_pos(t_stack **stack, int print)
 {
-	int	count;
-
-	count = 0;
-	while ((*stack)->stacka->pos != 0 && count < ft_lstsize((*stack)->stacka))
-	{
-		if (count < ft_lstsize((*stack)->stacka) / 2)
-			ra(stack, print);
-		else
-			rra(stack, print);
-		count++;
-	}
+	while ((*stack)->stacka->pos != 0)
+		ra(stack, print);
 	pb(stack, print);
 	sort_three_by_pos(stack, print);
 	pa(stack, print);
@@ -86,21 +77,8 @@ void	sort_four_by_pos(t_stack **stack, int print)
 
 void	sort_five_by_pos(t_stack **stack, int print)
 {
-	int	size;
-	int	index;
-
-	size = ft_lstsize((*stack)->stacka);
-	index = get_pos_index((*stack)->stacka, 0);
-	if (index <= size / 2)
-	{
-		while ((*stack)->stacka->pos != 0)
-			ra(stack, print);
-	}
-	else
-	{
-		while ((*stack)->stacka->pos != 0)
-			rra(stack, print);
-	}
+	while ((*stack)->stacka->pos != 0)
+		ra(stack, print);
 	pb(stack, print);
 	sort_four_by_pos(stack, print);
 	pa(stack, print);
