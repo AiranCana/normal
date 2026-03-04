@@ -61,15 +61,14 @@ $(NAME_BONUS): $(OBJ_BONUS) lib
 	@cc $(CFLAGS) $(OBJ_BONUS) libft.a -o $(NAME_BONUS) -g
 	@echo "\033[0;32m ✓ Copilado el checker\n\033[0m"
 
-$(FOLDER)/%.o: %.c | $(FOLDER)
-	cc -c $(CFLAGS) $< -o $@
+$(FOLDER)/%.o: %.c
+	@cc -c $(CFLAGS) $< -o $@ 
 
 $(FOLDER):
-	@mkdir $(FOLDER)
+	@mkdir -p $(FOLDER)
 	@echo "\033[0;32m ✓ Carpeta para .o creada\n\033[0m"
 
 clean:
-	@rm -rf $(OBJ) $(OBJ_BONUS)
 	@rm -rf $(FOLDER)
 	@echo "\033[0;31m ✗ Eliminar los .o del push_swap y el checker\n\033[0m"
 
