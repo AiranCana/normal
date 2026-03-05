@@ -219,7 +219,7 @@ AI was used for the following tasks:
 
 ## Contributors
 
-- **raqroca-**: Algorithm implementation (simple, medium, complex sorts), optimization tuning
+- **raqroca-**: Algorithm implementation (simple, medium, complex sorts)
 - **acanadil**: Benchmark mode, movements, parser, bonus, makefile
 
 
