@@ -6,7 +6,7 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 10:32:37 by raqroca-          #+#    #+#             */
-/*   Updated: 2026/03/04 17:27:30 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/03/06 12:21:32 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ void	medium(t_stack **stack, int print)
 		return ;
 	}
 	chunk = ft_sqrt(size);
-	if (size > 100)
-		chunk = chunk * 1.5;
+	if (size >= 50)
+		chunk = chunk * 2;
 	chunk_algorit(stack, chunk, print);
 	while ((*stack)->stackb)
 		return_max_to_a(stack, print);

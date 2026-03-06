@@ -102,13 +102,12 @@ The bonus includes a `checker` program that validates if the generated operation
 
 ---
 
-### Complex Strategy: O(n log n) - Hybrid Approach
+### Complex Strategy: O(n log n) - Radix Short
 
 **Principle**: Uses the most efficient algorithm for the input size.
 
 **Implementation**:
 - For n ≤ 5: Uses optimized tiny sort (specialized extraction and 3-element sort)
-- For 5 < n ≤ 20: Falls back to medium (chunk sort)
 - For n > 20: Uses radix sort (bit-by-bit processing)
 
 **Tiny Sort Details** (for n ≤ 5):

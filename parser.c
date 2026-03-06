@@ -6,18 +6,25 @@
 /*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 12:46:43 by acanadil          #+#    #+#             */
-/*   Updated: 2026/03/05 16:15:20 by raqroca-         ###   ########.fr       */
+/*   Updated: 2026/03/06 12:22:21 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_flags	*addflag(int fl, int p, char *fla)
+static char	*asign_namber_flags(int i)
 {
-	t_flags	*flag;
-
-	flag = ft_flanew(fl, p, fla);
-	return (flag);
+	if (i == 0)
+		return ("--bench");
+	if (i == 1)
+		return ("--simple");
+	if (i == 2)
+		return ("--medium");
+	if (i == 3)
+		return ("--complex");
+	if (i == 4)
+		return ("--adaptive");
+	return ("");
 }
 
 static int	no_repit(t_flags *flags)
@@ -45,13 +52,15 @@ static int	no_repit(t_flags *flags)
 static void	foun_in_arg(char *args, t_flags **flags, char *d, int p[2])
 {
 	char	*str;
+	t_flags	*flag;
 
 	while (*args)
 	{
 		if (strverif(args, d))
 		{
 			str = ft_strnstr(args, d, ft_strlen(args));
-			ft_flaadd_back(flags, addflag(p[1], p[0], str));
+			flag = ft_flanew(p[1], p[0], str);
+			ft_flaadd_back(flags, flag);
 			while (args != str)
 				args++;
 			args++;
@@ -66,14 +75,13 @@ static int	found_flags(char **args, t_flags **flags)
 	char	*d[6];
 	int		p[2];
 	char	*aux;
+	int		i;
 
+	i = -1;
 	p[0] = 0;
 	p[1] = 0;
-	d[0] = "--bench";
-	d[1] = "--simple";
-	d[2] = "--medium";
-	d[3] = "--complex";
-	d[4] = "--adaptive";
+	while (++i < 5)
+		d[i] = asign_namber_flags(i);
 	while (*args)
 	{
 		p[1] = 0;

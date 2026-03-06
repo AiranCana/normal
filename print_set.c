@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_set.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acanadil <acanadil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raqroca- <raqroca-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 12:25:33 by acanadil          #+#    #+#             */
-/*   Updated: 2026/03/03 10:53:58 by acanadil         ###   ########.fr       */
+/*   Updated: 2026/03/06 12:22:43 by raqroca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*sel_strat(float dis)
 	if (dis < 0.2)
 		return ("O(n^2)");
 	else if (dis < 0.5)
-		return ("O(n^2)");
+		return ("O(n√n)");
 	else
 		return ("O(n log n)");
 }
